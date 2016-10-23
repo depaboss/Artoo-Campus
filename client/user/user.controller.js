@@ -3,11 +3,11 @@
   'use strict';
 
   angular.module('App.user')
-    .controller('TestController', TestController);
+    .controller('UserController', UserController);
 
-    TestController.$inject=[];
+    UserController.$inject=[];
 
-    function TestController(){
+    function UserController(){
       var vm = this;
 
       vm.nome = 'Christian';

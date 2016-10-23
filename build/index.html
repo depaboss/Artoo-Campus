@@ -16,12 +16,14 @@
   </head>
   <body> <!-- bootstrap the app with your module -->
 
-    <div ng-view></div>
+    <div class="" ng-controller="UserController as vm">
+      <span ng-bind="vm.nome"> </span>
+    </div>
+
 
 
 
     <script src="vendors/angular/angular.js"></script>
-    <script src="vendors/angular-route/angular-route.js"></script>
     <script src="App/bundle.js"></script>
   </body>
 </html>

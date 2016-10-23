@@ -2,7 +2,6 @@
   'use strict';
 
   var App = angular.module('App',[
-    'ngRoute',
 
     'App.user'
 
@@ -20,33 +19,15 @@
 })();
 
 (function(){
-  'use strict';
-
-  angular.module('App.user')
-    .config(config);
-
-    function config($routeProvider){
-      $routeProvider
-        .when('/user', {
-          templateUrl: 'view/test/test.template.html',
-          controller: 'TestController',
-          controllerAs : 'vm'
-
-        })
-    }
-
-})();
-
-(function(){
 
   'use strict';
 
   angular.module('App.user')
-    .controller('TestController', TestController);
+    .controller('UserController', UserController);
 
-    TestController.$inject=[];
+    UserController.$inject=[];
 
-    function TestController(){
+    function UserController(){
       var vm = this;
 
       vm.nome = 'Christian';
