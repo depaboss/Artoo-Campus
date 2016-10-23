@@ -1,14 +1,4 @@
 (function(){
-  'use strict';
-
-  var App = angular
-    .module('App',[
-
-    ]);
-
- })();
-
-(function(){
 
   'use strict';
 
@@ -27,5 +17,3 @@
 
 
 })();
-
-//# sourceMappingURL=build/App/bundle.js.map
