@@ -1,23 +1,52 @@
 (function(){
   'use strict';
 
-  var App = angular
-    .module('App',[
+  var App = angular.module('App',[
+    'ngRoute',
 
-    ]);
+    'App.user'
+
+  ]);
 
  })();
+
+(function(){
+  'use strict';
+
+  angular.module('App.user', [
+
+  ]);
+
+})();
+
+(function(){
+  'use strict';
+
+  angular.module('App.user')
+    .config(config);
+
+    function config($routeProvider){
+      $routeProvider
+        .when('/user', {
+          templateUrl: 'view/test/test.template.html',
+          controller: 'TestController',
+          controllerAs : 'vm'
+
+        })
+    }
+
+})();
 
 (function(){
 
   'use strict';
 
-  angular.module('App')
-    .controller('UserController', UserController);
+  angular.module('App.user')
+    .controller('TestController', TestController);
 
-    UserController.$inject=[];
+    TestController.$inject=[];
 
-    function UserController(){
+    function TestController(){
       var vm = this;
 
       vm.nome = 'Christian';
