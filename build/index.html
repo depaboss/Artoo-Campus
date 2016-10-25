@@ -4,20 +4,26 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<base href="/">-->
     <meta name="fragment" content="!">
     <meta name="description" content="ANGULAR app for the Artoo Campus">
     <meta name="author" content="Christian Pengu">
     <meta name="application-name" content="Artoo Campus">
     <meta name="viewport" content="width=device-width">
-    
+
     <title>Artoo Campus</title>
     <!-- install bootstrap.css and load it -->
   </head>
   <body ng-app="App"> <!-- bootstrap the app with your module -->
-    <div ng-init="vm.foo='Hooray! AngularJS is up and running!'" ng-bind="vm.foo"></div>
-    {{2+2}}
-    <script src="vendors/angular/angular.js"></script>
-    <script src="App/bundle.js"></script>
+    <p ng-init=" foo=5; faa= 10; style='border:1px solid blue;' "></p>
+    <div style="{{style}}" >
+      {{foo + faa}}
+    </div>
+    <input type="number" ng-model="foo4" name="name" value="" >
+    <span ng-bind="1+1"></span>
+    <div class=""></div>
+
+{{foo4}}
+    <script src="vendor/angular/angular.js"></script>
+    <script src="bundle/bundle.js"></script>
   </body>
 </html>

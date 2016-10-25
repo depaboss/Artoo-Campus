@@ -7,6 +7,8 @@ var watch = require('gulp-watch');
 var eslint = require('gulp-eslint');
 var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
+var server = require('gulp-express');
+
 
 var config = require('./gulpconfig.json');
 
@@ -33,6 +35,16 @@ gulp.task('build-json', function(){
   gulp.src(config.jsonSrc)
   .pipe(gulp.dest(config.DEST))
 })
+
+gulp.task('miao', function () {
+  // Start the server at the beginning of the task
+  server.run(['./server/server.js'], {}, 7777);
+
+  // Restart the server when file changes
+  gulp.watch(['client/**/*.html'], server.notify);
+  gulp.watch(['client/js/**/*'], server.notify);
+  gulp.watch(['server/**/*.js'], [server.run]);
+});
 
 gulp.task('build-config', function () {
   var target = util.env.target || 'miao';
