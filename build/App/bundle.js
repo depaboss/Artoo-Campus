@@ -2,6 +2,8 @@
   'use strict';
 
   var App = angular.module('App',[
+    'ngRoute',
+
     'App.table'
   ]);
 
@@ -12,6 +14,22 @@
 
   angular.module('App.table', []);
 
+})();
+
+(function(){
+  'use strict';
+
+  angular.module('App.table')
+    .config(config);
+
+    function config($routeProvider){
+      $routeProvider
+        .when('/table', {
+          controller: 'TableController',
+          controllerAs: 'vm',
+          templateUrl: 'view/table/template/table.template.html'
+        })
+    }
 })();
 
 (function(){
