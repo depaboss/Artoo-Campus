@@ -38,7 +38,7 @@
       vm.save = function(params){
         console.log(params);
 
-        if(!params.nome)return
+        // if(!params.nome)return
         if(params.id) return vm.edit(params);
 
         params.id = vm.users.length +1;
@@ -56,9 +56,10 @@
       }
 
       vm.delete = function(params){
-        vm.users.map(function(index){
+        vm.users.map(function(index,value){
           if(index.id === params){
-            return vm.users.pop(params);}
+            return vm.users.splice(value , 1);
+          }
         });
       }
     }

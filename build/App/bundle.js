@@ -9,6 +9,42 @@
   'use strict';
 
   angular.module('App')
+    .controller('UserController', UserController);
+
+        UserController.$inject = [];
+
+        function UserController(){
+          var vm = this;
+          vm.users = [{
+            'nome' : 'Christian',
+            'cognome': 'Pengu',
+            'age': 18
+          },{
+            'nome' : 'Marco',
+            'cognome': 'Rossi',
+            'age': 23
+          },{
+            'nome' : 'Luca',
+            'cognome': 'Bianchi',
+            'age': 30
+          }
+        ];
+
+          vm.print= function(){
+            console.info(vm.saluta);
+            // vm.saluta = 'Ciao ' +vm.user.nome + ' ' + vm.user.cognome + ' ' + vm.user.age;
+            console.log(vm.saluta);
+
+          }
+
+        }
+
+})();
+
+(function(){
+  'use strict';
+
+  angular.module('App')
     .controller('TableController', TableController);
 
     TableController.$inject=[];
@@ -45,7 +81,7 @@
       vm.save = function(params){
         console.log(params);
 
-        if(!params.nome)return
+        // if(!params.nome)return
         if(params.id) return vm.edit(params);
 
         params.id = vm.users.length +1;
@@ -63,48 +99,13 @@
       }
 
       vm.delete = function(params){
-        vm.users.map(function(index){
+        vm.users.map(function(index,value){
           if(index.id === params){
-            return vm.users.pop(params);}
+            return vm.users.splice(value , 1);
+          }
         });
       }
     }
-})();
-
-(function(){
-  'use strict';
-
-  angular.module('App')
-    .controller('UserController', UserController);
-
-        UserController.$inject = [];
-
-        function UserController(){
-          var vm = this;
-          vm.users = [{
-            'nome' : 'Christian',
-            'cognome': 'Pengu',
-            'age': 18
-          },{
-            'nome' : 'Marco',
-            'cognome': 'Rossi',
-            'age': 23
-          },{
-            'nome' : 'Luca',
-            'cognome': 'Bianchi',
-            'age': 30
-          }
-        ];
-
-          vm.print= function(){
-            console.info(vm.saluta);
-            // vm.saluta = 'Ciao ' +vm.user.nome + ' ' + vm.user.cognome + ' ' + vm.user.age;
-            console.log(vm.saluta);
-
-          }
-
-        }
-
 })();
 
 //# sourceMappingURL=build/App/bundle.js.map
